@@ -4,4 +4,5 @@
 
 var yearOfBirth = 1988;
 
+console.log("Hello Professor Lewis!");
 console.log(yearOfBirth);
