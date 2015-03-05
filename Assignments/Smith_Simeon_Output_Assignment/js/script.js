@@ -8,11 +8,6 @@
 // Output Assignment
 
 
-var firstName = "Simeon"; //Assigning my first name as a string.
-var lastName = "Smith"; //Assigning my last name as a string.
-var yearBirth = 1988; //Assigning my birth year as a number.
-var monthBirth = "November"; //Assigning my birth month as a string.
-var yearCurrent = new Date().getFullYear(); //Calculating the current year and setting it as a number.
 var placeBirth = "Anchorage, Alaska"; //Assigning my birth location as a string.
 var genderMale = true; //Assigning a boolean value to my gender.
 var relationshipStatus = "married"; //Assigning my relationship status as a string.
@@ -21,11 +16,8 @@ var grandparent = false; //Assigning a boolean value to my grandparental status.
 var numSiblings = 6; //Assigning how many siblings I have as a number.
 var siblingNames = ["Michael", "Marielle", "Gabriella", "Julianna", "John", "Anna"]; //Assigning my sibling names as an array.
 
-console.log("My name is " + firstName + " " + lastName + "."); //Outputting name to console.log my name.
 
-var age = yearCurrent - yearBirth; //Calculating my age from the current yearn and my year of birth and assigning it as a number.
-
-console.log("I was born in " + placeBirth + " in " + yearBirth + " and I will be " + age + " this " + monthBirth + "."); // Outputting birth location, year of birth, age and month of birth.
+console.log("I was born in " + placeBirth + "."); // Outputting birth location, year of birth, age and month of birth.
 
 console.log("It is " + genderMale + " that I am male."); //Outputting gender.
 
