@@ -2,7 +2,6 @@
  * Created by Simeon on 3/4/2015.
  */
 
-var age; //declared
-age = 26; //defined
+var age = 26; //Number variable
 
-var yearOfBirth = 1988; // decalared and defined on the sae line
+var isTeacher = false;
