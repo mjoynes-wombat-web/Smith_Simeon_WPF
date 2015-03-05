@@ -7,4 +7,6 @@ var siblingNames = ["Michael", "Marielle", "Gabriella", "Julianna", "John", "Ann
 siblingNames[1] = "Fevronia"; //Change array 1.
 siblingNames[6] = "Seraphim"; //Defined array 6.
 
-console.log(siblingNames[6]); //Display array 1 after change.
+var num = 6;
+
+console.log(siblingNames[num]); //Display array 1 after change.
