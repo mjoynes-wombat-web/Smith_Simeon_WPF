@@ -8,4 +8,4 @@ var isTeacher = false; // Boolean variable
 
 var firstName = "Simeon"; //String variable
 
-var phrase = 'This doesn\'t work.';
+var phrase = 'This doesn\'t work. \n Maybe this will.';
