@@ -3,8 +3,6 @@
  */
 
 var siblingNames = ["Michael", "Marielle", "Gabriella", "Julianna", "John", "Anna"]; //0, 1, 2, 3, 4, 5
-
-console.log(siblingNames[0]);
-console.log(siblingNames[1]);
-console.log(siblingNames[2]);
-console.log(siblingNames[6]);
+console.log(siblingNames[1]); //Display array 1.
+siblingNames[1] = "Fevronia"; //Change array 1.
+console.log(siblingNames[1]); //Display array 1 after change.
