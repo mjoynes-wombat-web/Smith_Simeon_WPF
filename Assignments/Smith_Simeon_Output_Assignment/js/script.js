@@ -8,3 +8,11 @@
 // Output Assignment
 
 
+var firstName = "Simeon"; //My first name.
+var lastName = "Smith"; //My last name.
+var yearBirth = 1988; //My year of birth.
+var placeBirth = "Anchorage, Alaska"; //My location of birth.
+var male = true; //My gender.
+var currentYear = new Date().getFullYear(); //Current year.
+
+console.log(currentYear); //Testing current year.
