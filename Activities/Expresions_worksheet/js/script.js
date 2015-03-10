@@ -25,8 +25,7 @@ console.log ("Each person ate " + slicesPerPerson + " slices of pizza at the par
 //Problem: SLICES OF PIE P.2
 
 var slicesOfPizza = slicesPerPizza * pizzas,
-    wholeSlicesPerPerson = Math.floor(slicesPerPerson),
-    slicesForSparky = slicesOfPizza - wholeSlicesPerPerson * people;
+    slicesForSparky = slicesOfPizza%people;
 
 console.log("Sparky got " + slicesForSparky + " slices of pizza.");
 
