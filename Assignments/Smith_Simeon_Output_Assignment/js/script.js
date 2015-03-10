@@ -34,4 +34,3 @@ console.log("My sister " + siblingNames[1] + " is a nun."); //Identify sibling 2
 siblingNames[1] = "Fevronia"; //Changing sibling 2's name.
 
 console.log("When she became a nun her name changed to " + siblingNames[1] + "."); //Outputting sibling 2's name change.
-
