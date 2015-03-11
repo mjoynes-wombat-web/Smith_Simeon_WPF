@@ -54,6 +54,11 @@ currentPrice += priceChange;                //Calculating the possible price for
 console.log("The is a " + priceChange + " change for this fill up. If this trend continues your price will be $" + currentPrice + " next time.");  //Outputting the price change and the possible next price based on the trend.
 
 
+/*THIRD CALCULATIONS*/
+
+last5MpgAvg = last4Mpg[0] + last4Mpg[1] +last4Mpg[2] +last4Mpg[3] + currentMpg;
+last5MpgAvg /= 5;
+
 /*TESTING SECTION*/
 
 //alert(title+"This is a test.");                 //Test of the new line in the title variable.
@@ -67,4 +72,6 @@ console.log("The is a " + priceChange + " change for this fill up. If this trend
 //console.log(price, last5PriceAvg, priceChange); //Testing price change calculation.
 
 //console.log(currentPrice);                      //Price difference calculation test.
+
+//console.log(last5MpgAvg);                     //Test of last 5 price average calculation.
 
