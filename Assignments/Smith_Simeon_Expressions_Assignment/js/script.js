@@ -29,7 +29,7 @@ miles = Number(prompt(title + "How many miles did you drive since your last fill
 price = Number(prompt(title + "What was the total cost of this fill up?" + warning));                 //Asking the user to enter the total cost of the fill up.
 
 
-/*INITIAL CALCULATIONS*/
+/*FIRST CALCULATIONS*/
 
 currentMpg = miles / gallons;
 currentPrice = price / gallons;
@@ -38,7 +38,10 @@ last5PriceAvg /= 5;
 priceChange = currentPrice - last5PriceAvg;
 
 
-/*INITIAL CONSOLE OUTPUTS */
+/*FIRST CONSOLE OUTPUTS */
+
+console.log("Your current mpg is " + currentMpg + " mpg and cost you $" + currentPrice + " per gallon." );  //Outputting the MPG and price per gallon.
+console.log("The price per gallon average from the last 5 fill ups is $" + last5PriceAvg + ".");        //Outputting the average price per gallon for the last 5 fill ups.
 
 
 
