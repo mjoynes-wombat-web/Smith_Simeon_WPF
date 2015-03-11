@@ -40,16 +40,19 @@ last5PriceAvg /= 5;
 /*FIRST CONSOLE OUTPUTS */
 
 console.log("Your current mpg is " + currentMpg + " mpg and cost you $" + currentPrice + " per gallon." );  //Outputting the MPG and price per gallon.
-console.log("The price per gallon average from the last 5 fill ups is $" + last5PriceAvg + ".");        //Outputting the average price per gallon for the last 5 fill ups.
+console.log("The price per gallon average from the last 5 fill ups is $" + last5PriceAvg + ".");            //Outputting the average price per gallon for the last 5 fill ups.
 
 
 /*SECOND CALCULATIONS */
 
-priceChange = currentPrice - last5PriceAvg;
-currentPrice += priceChange;
+priceChange = currentPrice - last5PriceAvg; //Calculating the change in price.
+currentPrice += priceChange;                //Calculating the possible price for the next fill up if the trend continues.
 
 
 /* SECOND CONSOLE OUTPUTS */
+
+console.log("The is a " + priceChange + " change for this fill up. If this trend continues your price will be $" + currentPrice + " next time.");  //Outputting the price change and the possible next price based on the trend.
+
 
 /*TESTING SECTION*/
 
