@@ -24,19 +24,33 @@ var title = "Checking Your MPG History.\n",     //Title for the top of the promp
 
 /*USER PROMPTS */
 
-gallons = Number(prompt(title + "How many gallons did you put in the car?"));               //Asking the user to define the number of gallons filled up.
-miles = Number(prompt(title + "How many miles did you drive since your last fill up?"));    //Asking the user to define the number of miles driven since the last fill up.
-price = Number(prompt(title + "What was the total cost of this fill up?"));                 //Asking the user to enter the total cost of the fill up.
+gallons = Number(prompt(title + "How many gallons did you put in the car?" + warning));               //Asking the user to define the number of gallons filled up.
+miles = Number(prompt(title + "How many miles did you drive since your last fill up?" + warning));    //Asking the user to define the number of miles driven since the last fill up.
+price = Number(prompt(title + "What was the total cost of this fill up?" + warning));                 //Asking the user to enter the total cost of the fill up.
 
 
 /*INITIAL CALCULATIONS*/
+
+currentMpg = miles / gallons;
+currentPrice = price / gallons;
+last5PriceAvg = last4Price[0] + last4Price[1] + last4Price[2] + last4Price[3] + currentPrice;
+last5PriceAvg /= 5;
+priceChange = currentPrice - last5PriceAvg;
+
+
+/*INITIAL CONSOLE OUTPUTS */
 
 
 
 /*TESTING SECTION*/
 
-//alert(title+"This is a test.");               //Test of the new line in the title variable.
+//alert(title+"This is a test.");                 //Test of the new line in the title variable.
 
-console.log(gallons, miles, price);             //Testing the user input.
+//console.log(gallons, miles, price);             //Testing the user input.
 
+//console.log(currentMpg);                        //Testing current mpg.
+
+//console.log(last5PriceAvg);                     //Testing current mpg
+
+//console.log(price, last5PriceAvg, priceChange); //Testing price change calculation.
 
