@@ -35,7 +35,6 @@ currentMpg = miles / gallons;
 currentPrice = price / gallons;
 last5PriceAvg = last4Price[0] + last4Price[1] + last4Price[2] + last4Price[3] + currentPrice;
 last5PriceAvg /= 5;
-priceChange = currentPrice - last5PriceAvg;
 
 
 /*FIRST CONSOLE OUTPUTS */
@@ -44,6 +43,13 @@ console.log("Your current mpg is " + currentMpg + " mpg and cost you $" + curren
 console.log("The price per gallon average from the last 5 fill ups is $" + last5PriceAvg + ".");        //Outputting the average price per gallon for the last 5 fill ups.
 
 
+/*SECOND CALCULATIONS */
+
+priceChange = currentPrice - last5PriceAvg;
+currentPrice += priceChange;
+
+
+/* SECOND CONSOLE OUTPUTS */
 
 /*TESTING SECTION*/
 
@@ -56,4 +62,6 @@ console.log("The price per gallon average from the last 5 fill ups is $" + last5
 //console.log(last5PriceAvg);                     //Testing current mpg
 
 //console.log(price, last5PriceAvg, priceChange); //Testing price change calculation.
+
+//console.log(currentPrice);                      //Price difference calculation test.
 
