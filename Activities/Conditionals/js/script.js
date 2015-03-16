@@ -36,3 +36,32 @@ if(kidHeight > minHeight){
 }
 
 //console.log("I always print.");
+
+/*
+ Relational Operators
+ >   Greater than
+ <   Less than
+ >=  Greater than or equal to
+ <=  Less than or equal to
+ ==  Equal to
+ === Strict equality
+ !=  Inequality
+
+ Logical Operators
+ &&  And - Both Vars must be True
+ ||  Or -
+ ^   Exclusive Or
+ !   Not
+ */
+
+var budget = 300;
+var iPhonePrice = 199.99;
+var debt = 500;
+
+//If the price of the phone is less than the budget.
+if(iPhonePrice < budget ^ debt > 100){
+    console.log("You can buy the phone!")
+}else{
+    console.log("No phone for you!")
+}
+
