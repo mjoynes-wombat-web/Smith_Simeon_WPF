@@ -6,21 +6,24 @@ Conditionals Activity
 March 21, 2013
  */
 
+//Temperature based on user input.
 /*
 var temp = prompt("What is the temperature?");
 
 if(temp > 65){
-    alert("It's warm!");
+    console.log("It's warm!");
 }else{
-    alert("It is cold!");
-};
+    console.log("It is cold!");
+}
 */
 
-var oldEnough = true;
 
-//If the child is old enough, print to the console "You can ride!"
+var kidHeight = 50;
+var minHeight = 48;
 
-if(oldEnough){
+
+//If the kid is over 48 inches in height.
+if(kidHeight > minHeight){
     //Code to perform if condition is true.
     console.log("You can ride the roller coaster!");
 }
