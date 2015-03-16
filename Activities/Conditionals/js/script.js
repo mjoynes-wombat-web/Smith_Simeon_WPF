@@ -18,14 +18,18 @@ if(temp > 65){
 */
 
 
-var kidHeight = 48;
+var kidHeight = 46;
 var minHeight = 48;
+var wParentHeight = 45;
 
 
 //If the kid is over 48 inches in height.
 if(kidHeight > minHeight){
-    //Code to perform if condition is true.
+    //You can ride!
     console.log("You can ride the roller coaster!");
+}else if(kidHeight > wParentHeight){
+    //You can ride with a parent present.
+    console.log("You can ride but only with a parent present.")
 }else{
     //Code to perform if condition is false.
     console.log("Sorry kid, you've got some growing to do first!");
