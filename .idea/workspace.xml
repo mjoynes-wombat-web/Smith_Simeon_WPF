@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8a98ee2f-641c-4417-bbca-daa97b8fb293" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Activities/Conditionals/js/script.js" afterPath="$PROJECT_DIR$/Activities/Conditionals/js/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Smith_Simeon_WPF.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +40,8 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Activities/Conditionals/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4894795" vertical-offset="0" max-vertical-offset="903">
-              <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.56478405" vertical-offset="0" max-vertical-offset="903">
+              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -657,8 +658,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Activities/Conditionals/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4894795" vertical-offset="0" max-vertical-offset="903">
-          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.56478405" vertical-offset="0" max-vertical-offset="903">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

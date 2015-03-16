@@ -18,14 +18,17 @@ if(temp > 65){
 */
 
 
-var kidHeight = 47;
+var kidHeight = 48;
 var minHeight = 48;
-var sneakerLift = 2;
 
 
 //If the kid is over 48 inches in height.
-if(kidHeight + sneakerLift > minHeight){
+if(kidHeight > minHeight){
     //Code to perform if condition is true.
     console.log("You can ride the roller coaster!");
+}else{
+    //Code to perform if condition is false.
+    console.log("Sorry kid, you've got some growing to do first!");
 }
+
 //console.log("I always print.");
