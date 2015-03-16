@@ -65,3 +65,19 @@ if(iPhonePrice < budget ^ debt > 100){
     console.log("No phone for you!")
 }
 
+//Ternary Operators
+
+var gpa = 4.8;
+
+//If the gpa is over the min 2.0 score, the student can graduate.
+
+(gpa > 2.0) ? console.log("You can graduate!") : console.log("GPA is too low.");
+
+var age = 6;
+var book;
+
+//If the child is under 10, they get Green Eggs and Ham, otherwise they get The Time Machine.
+
+book = (age < 10) ? "Green Eggs and Ham" : "The Time Machine";
+
+console.log(book);
