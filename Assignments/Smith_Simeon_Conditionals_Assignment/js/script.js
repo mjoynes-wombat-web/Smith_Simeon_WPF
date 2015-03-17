@@ -11,10 +11,10 @@ Requirements
 
 //a.  An example of 2 different arithmetic operators (addition and subtraction,
     addition and multiplication, subtraction and division, etc.).
-/b.  2 conditional statements – A least one must contain an else if statement
-/c.  At least 1 ternary conditional statement must be used
-d.  At least 1 Logical Operator && , || or !
-/e.  Must contain at least 3 user prompts that are used in calculations
+//b.  2 conditional statements – A least one must contain an else if statement
+//c.  At least 1 ternary conditional statement must be used
+//d.  At least 1 Logical Operator && , || or !
+//e.  Must contain at least 3 user prompts that are used in calculations
 f.  All prompts must be validated
 
 Instructions
@@ -38,8 +38,9 @@ var monthlyPay,     //Users monthly pay
     itemPrice,     //House price
     interestRate,   //Loan interest rate
     loanTerm,        //Length of loan
-    downPayment,    //House down payment
+    //downPayment,    //House down payment
     monthlyExcess,  //Extra money after bills
+    monthlyBuffer,  //17% Buffer on loan
     monthlyPayment, //Monthly payment amount
     interestPaid,   //Total interest paid
     totalPaid;      //Total amount paid
@@ -123,11 +124,11 @@ function loanTermValidate(){    //Interest rate validation and alert if not a nu
         loanTermPrompt();
         loanTermValidate();
     }else{
-        downPaymentConfirm();
+        //downPaymentConfirm();
     }
 }
 
-//Down Payment Functions
+/*//Down Payment Functions
 function downPaymentConfirm(){   //User prompt asking if there was a down payment and then calls the down payment prompt
     downPayment = confirm("Was a down payment made on the item? Click OK if yes and Cancel if no.");
     downPaymentPrompt();
@@ -148,20 +149,37 @@ function downPaymentValidation() {  //Down payment validation and alert if not a
     }else{
     }
 
-}
+}*/
 
 monthlyPayPrompt();
 
 
 //interestPaid = (Premium * (interest/12*(Math.pow(((1+interest)/12), term))))/((Math.pow((1+interest/12), term)-1)
 
+monthlyExcess = monthlyPay - monthlyBills;
 monthlyPayment = itemPrice * ((interestRate/12*(Math.pow((1+interestRate/12), loanTerm)))/((Math.pow((1+interestRate/12), loanTerm)-1)));
+monthlyBuffer = monthlyExcess - monthlyPayment;
+minMonthlyBuffer = monthlyPayment * .17;
 totalPaid = monthlyPayment * loanTerm;
 interestPaid = totalPaid - itemPrice;
 
 
+if(monthlyExcess >= monthlyPayment + minMonthlyBuffer || monthlyExcess >= monthlyPayment){
+    console.log("You can afford to finance this item!")
+}else{
 
-(confirm("would you like to see how much your monthly payment would be?")) ? console.log("Your monthly payment will be $" + monthlyPayment + ".") : ""  ;
+}
+
+if(monthlyExcess >= monthlyPayment + minMonthlyBuffer){
+    console.log("You will have a buffer of $" + monthlyBuffer + " a month which is over 17% of the monthly payment. \nThis gives you a safety buffer that allows you to have an extra payment in savings ever 6 months in case of emergency.");
+}else if(monthlyExcess >= monthlyPayment){
+    console.log("However, you do not have at least a 17% safety buffer. \nYou only have $" + monthlyExcess + " extra a month that is not being put towards expenses. \nA buffer of 17% is recommended so that you can put an extra payment in savings every 6 months for safety.");
+}else{
+    console.log("You cannot afford the monthly loan payments of $" + monthlyPayment + ".");
+}
+
+
+(confirm("Would you like to see how much your monthly payment would be?")) ? console.log("Your monthly payment will be $" + monthlyPayment + ".") : ""  ;
 (confirm("Would you like to see how much you will pay?")) ? console.log("You will pay $" + totalPaid + " total for this item.") : "" ;
 (confirm("Would you like to see how much you will pay in interest?")) ? console.log("You will pay $" + interestPaid + " in interest.") : "" ;
 
