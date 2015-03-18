@@ -39,24 +39,21 @@ var monthlyPay,         //User's monthly pay
     interestRate,       //Loan interest rate
     loanTerm,           //Length of loan
     monthlyBudget,      //Budgeted boolean
-    monthlyBudgetAmt = 9999999999999999999999999999,   //Monthly budget for loan.
+    monthlyBudgetAmt = Infinity,   //Monthly budget for loan.
     monthlyExcess,      //Extra money after bills
     monthlyBuffer,      //17% Buffer on loan
     monthlyPayment,     //Monthly payment amount
     interestPaid,       //Total interest paid
     totalPaid;          //Total amount paid
 
-
 /*FUNCTIONS*/
 
-//Monthly Pay Functions
+//Monthly Pay Function
 function monthlyPayPrompt(){    //User prompt asking for monthly pay and validation call.
     monthlyPay = Number(prompt("How much do you make a month? \nPlease enter only numbers."));
-    monthlyPayValidate();
-}
+    console.log(monthlyPay);
 
-function monthlyPayValidate(){  //Monthly pay validation and alert if not a number and recalls prompt, else calls monthly bills prompt.
-    if(isNaN(monthlyPay)){
+    if(isNaN(monthlyPay) || monthlyPay <= 0){   //Monthly pay validation and alert if not a number and recalls prompt, else calls monthly bills prompt.
         alert("You didn't enter a number for your pay. \nPlease enter only a number.");
         monthlyPayPrompt();
     }else{
@@ -64,31 +61,25 @@ function monthlyPayValidate(){  //Monthly pay validation and alert if not a numb
     }
 }
 
-//Monthly Bills Functions
+//Monthly Bills Function
 function monthlyBillsPrompt(){  //User prompt asking for monthly bills and validation call.
     monthlyBills = Number(prompt("What is your monthly expenses? \nPlease enter only numbers."));
-    monthlyBillsValidate();
-}
 
-function monthlyBillsValidate(){  //Monthly bills validation and alert if not a number and recalls prompt, else calls house price prompt.
-    if(isNaN(monthlyBills)){
+    if(isNaN(monthlyBills) || monthlyBills <= 0){   //Monthly bills validation and alert if not a number and recalls prompt, else calls house price prompt.
         alert("You didn't enter a number for your expenses. \nPlease enter only a number.");
         monthlyBillsPrompt();
     }else{
-        housePricePrompt();
+        itemPricePrompt();
     }
 }
 
 //House Price Functions
-function housePricePrompt(){    //User prompt asking for the house price and validation call.
+function itemPricePrompt(){    //User prompt asking for the house price and validation call.
     itemPrice = Number(prompt("What is the price of the item to be financed? \nPlease enter only numbers."));
-    housePriceValidate();
-}
 
-function housePriceValidate(){  //House price validation and alert if not a number and recalls prompt, else calls interest rate prompt.
-    if(isNaN(itemPrice)){
+    if(isNaN(itemPrice) || itemPrice <= 0){  //House price validation and alert if not a number and recalls prompt, else calls interest rate prompt.
         alert("You didn't enter a number for the price of the item. \nPlease enter only a number.");
-        housePricePrompt();
+        itemPricePrompt();
     }else{
         interestRatePrompt();
     }
@@ -97,11 +88,8 @@ function housePriceValidate(){  //House price validation and alert if not a numb
 //Interest Rate Functions
 function interestRatePrompt(){  //User prompt asking for the loan interest rate and validation call.
     interestRate = (Number(prompt("What is the loan interest rate? \nPlease enter the interest rate as a whole number e.g. 50%=50.")))/100;
-    interestRateValidate();
-}
 
-function interestRateValidate(){    //Interest rate validation and alert if not a number and recalls prompt, else calls loan term prompt.
-    if(isNaN(interestRate)){
+    if(isNaN(interestRate) || interestRate < 0){    //Interest rate validation and alert if not a number and recalls prompt, else calls loan term prompt.
         alert("You didn't enter a number for the interest rate. \nPlease enter only numbers.");
         interestRatePrompt();
     }else{
@@ -112,11 +100,8 @@ function interestRateValidate(){    //Interest rate validation and alert if not 
 //Loan Term Functions
 function loanTermPrompt(){  //User prompt asking for the loan term length and validation call.
     loanTerm = Number(prompt("What is the loan term length? \nPlease enter the term in months and only as a number."));
-    loanTermValidate();
-}
 
-function loanTermValidate(){    //Interest rate validation and alert if not a number and recalls prompt, else cal monthly budget prompt
-    if(isNaN(loanTerm)){
+    if(isNaN(loanTerm) || loanTerm <= 0){   //Interest rate validation and alert if not a number and recalls prompt, else cal monthly budget prompt
         alert("You didn't enter a number for the loan term. \nPlease enter only numbers.");
         loanTermPrompt();
     }else{
@@ -124,32 +109,28 @@ function loanTermValidate(){    //Interest rate validation and alert if not a nu
     }
 }
 
-monthlyPayPrompt(); //Runs monthly pay prompt function which calls the other prompts.
-
 //Monthly Budget Prompt
 function monthlyBudgetPrompt() {    //User prompt asking them if they have a budget for the loan.
     monthlyBudget = confirm("Do you have a budget for this loan?");
-    monthlyBudgetAmtPrompt();
-}
 
-function monthlyBudgetAmtPrompt(){  //User prompt asking for the amount of the monthly budget if there is one, else continue to calculations.
-    if(monthlyBudget){
+    if(monthlyBudget){  //User prompt asking for the amount of the monthly budget if there is one, else continue to calculations.
         monthlyBudgetAmt = Number(prompt("What is your monthly budget for this item? \nPlease enter only numbers."));
-        monthlyBudgetAmtValidate();
+
+        if(isNaN(monthlyBudgetAmt) || monthlyBudget <= 0){  //Monthly budget validation, alert if not a number and recalls monthly budget prompt, else continues with calculations.
+            alert("You didn't enter a number for your monthly budget. We will confirm that you wanted to enter a budget. \nPlease enter only numbers.");
+            monthlyBudgetPrompt();
+        }else{
+
+        }
     }else{
 
     }
 }
 
-function monthlyBudgetAmtValidate(){ //Monthly budget validation, alert if not a number and recalls monthly budget prompt, else continues with calculations.
-    if(isNaN(monthlyBudgetAmt)){
-        alert("You didn't enter a number for your monthly budget. We will confirm that you wanted to enter a budget. \nPlease enter only numbers.");
-        monthlyBudgetPrompt();
-    }else{
 
-    }
-}
+/*START PROGRAM */
 
+monthlyPayPrompt(); //Runs monthly pay prompt function which calls the other prompts.
 
 /*CALCULATIONS*/
 
@@ -177,7 +158,7 @@ if(monthlyPayment <= monthlyBudgetAmt && monthlyExcess >= monthlyPayment + minMo
     console.log("You can afford to finance this item.");
     console.log("However, you do not have at least a 17% safety buffer. \nYou will only have $" + monthlyBuffer + " extra a month that is not being put towards expenses. \nA buffer of 17% is recommended so that you can put an extra payment in savings every 6 months for safety.");
 }else if(monthlyPayment > monthlyBudgetAmt && monthlyExcess >= monthlyPayment){                   //If monthly excess is less than the monthly budget and monthly excess is greater than or equal to the monthly payment display the message.
-    console.log("You could afford the loan payments. However, they are higher then your budgeted amount.")
+    console.log("You could afford the loan payments. However, they are higher then your budgeted amount of $" + monthlyBudgetAmt + ".")
 }else{                                                                                          //Else display this message.
     console.log("You cannot afford the monthly loan payments of $" + monthlyPayment + ".");
 }
