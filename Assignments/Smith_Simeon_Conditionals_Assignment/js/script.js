@@ -51,7 +51,6 @@ var monthlyPay,         //User's monthly pay
 //Monthly Pay Function
 function monthlyPayPrompt(){    //User prompt asking for monthly pay and validation call.
     monthlyPay = Number(prompt("How much do you make a month? \nPlease enter only numbers."));
-    console.log(monthlyPay);
 
     if(isNaN(monthlyPay) || monthlyPay <= 0){   //Monthly pay validation and alert if not a number and recalls prompt, else calls monthly bills prompt.
         alert("You didn't enter a number for your pay. \nPlease enter only a number.");
@@ -132,9 +131,8 @@ function monthlyBudgetPrompt() {    //User prompt asking them if they have a bud
 
 monthlyPayPrompt(); //Runs monthly pay prompt function which calls the other prompts.
 
-/*CALCULATIONS*/
 
-//interestPaid = (Premium * (interest/12*(Math.pow(((1+interest)/12), term))))/((Math.pow((1+interest/12), term)-1)
+/*CALCULATIONS*/
 
 monthlyExcess = monthlyPay - monthlyBills;          //Calculates the amount of money left over after paying bills for the month.
 monthlyPayment = itemPrice * ((interestRate/12*(Math.pow((1+interestRate/12), loanTerm)))/((Math.pow((1+interestRate/12), loanTerm)-1)));   //Calculates the monthly payments.
