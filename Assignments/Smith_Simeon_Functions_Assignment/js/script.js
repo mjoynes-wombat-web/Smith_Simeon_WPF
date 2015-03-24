@@ -57,12 +57,32 @@ function lotteryNumGen (up, low, qt) {
 
         lotNumber[ln] = randomNumGen;
 
+        for (var n  = 0; ln > n; n++) {
+            if (lotNumber[n] === lotNumber[ln]){
+                lotNumber[ln] = Math.round(Math.random() * (up - low) + low);
+
+                n--;
+                console.log(lotNumber);
+                console.log(n)
+            }
+            console.log(n);
+        }
     }
 
     return lotNumber;
 
 }
 
+
+/*MAIN CODE*/
+
+lotteryNums = lotteryNumGen(115, 110, 6);
+console.log(lotteryNums);
+
+
+/*TESTS*/
+
+/* Validation Test
 var ln = 3;
 var lotNumber = [115, 112, 115, 115];
 console.log(lotNumber);
@@ -79,8 +99,9 @@ for (var n  = 0; ln > n; n++) {
     }
     console.log(n);
 }
+*/
 
-/* OUTPUT FROM THIS CODE
+/* Output from this code.
  script.js:68 [115, 112, 115, 115]
  script.js:77 [115, 112, 115, 115]
  script.js:78 -1
@@ -93,8 +114,31 @@ for (var n  = 0; ln > n; n++) {
  script.js:80 2
  */
 
+/*Outputs from the call below.
 
-/*MAIN CODE*/
+ lotteryNums = lotteryNumGen(115, 110, 6);
 
-//lotteryNums = lotteryNumGen(53, 1, 6);
-//console.log(lotteryNums);
+ script.js:66 -1
+ script.js:68 -1
+ script.js:68 0
+ script.js:68 1
+ script.js:68 0
+ script.js:68 1
+ script.js:68 2
+ script.js:68 0
+ script.js:68 1
+ script.js:68 2
+ script.js:68 3
+ script.js:68 0
+ script.js:65 [113, 111, 114, 112, 115, 114]
+ script.js:66 0
+ script.js:68 0
+ script.js:68 1
+ script.js:65 [113, 111, 114, 112, 115, 110]
+ script.js:66 1
+ script.js:68 1
+ script.js:68 2
+ script.js:68 3
+ script.js:68 4
+ script.js:80 [113, 111, 114, 112, 115, 110]
+ */
