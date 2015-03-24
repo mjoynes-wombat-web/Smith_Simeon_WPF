@@ -67,7 +67,7 @@ var ln = 3;
 var lotNumber = [115, 112, 115, 115];
 console.log(lotNumber);
 var up = 115;
-var low = 1;
+var low = 114;
 
 for (var n  = 0; ln > n; n++) {
     if (lotNumber[n] === lotNumber[ln]){
