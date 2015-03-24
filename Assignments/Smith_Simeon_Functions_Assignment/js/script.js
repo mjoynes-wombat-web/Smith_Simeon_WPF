@@ -42,42 +42,58 @@ March 23, 2013
 
 /*VARIABLES*/
 
-var lotteryNums;
+var lotteryNums,        //Setting up lottery number variable.
+    lotteryType,        //Setting up the lottery type variable.
+    floridaLottery,     //Setting up the Florida Lottery variable.
+    powerballLottery,   //Setting up the Powerball Lottery variable.
+    powerball;          //Setting up the Powerball variable.
 
 
 /*FUNCTIONS*/
 
 //Random lottery number generation.
 
-function lotteryNumGen (up, low, qt) {
-    var lotNumber = [];
+function lotteryNumGen (low, up, qt) {  //Defining function name, and parameters for quantity, upper limit, and lower limit.
+    var lotNumber = [];                 //Setting up internal lottery number array.
 
-    for (var ln = 0; ln < qt; ln++) {
-        var randomNumGen = Math.round(Math.random() * (up - low) + low);
+    for (var ln = 0; ln < qt; ln++) {   //For loop to generate random numbers based on qt parameter.
+        var randomNumGen = Math.round(Math.random() * (up - low) + low); //Outputting a random number based on the upper  and lower limit parameters.
 
-        lotNumber[ln] = randomNumGen;
+        lotNumber[ln] = randomNumGen;   //Inserting the random number into the lottery number array.
 
-        for (var n  = 0; ln > n; n++) {
-            if (lotNumber[n] === lotNumber[ln]){
-                lotNumber[ln] = Math.round(Math.random() * (up - low) + low);
+        for (var n = 0; ln > n; n++) {  //If the ln array number is greater then zero then validate and loop through any other numbers.
+            if (lotNumber[n] === lotNumber[ln]){    //If the two lottery numbers are equal then do the following.
+                lotNumber[ln] = Math.round(Math.random() * (up - low) + low);   //Re-randomizing the lottery number.
 
-                n--;
-                console.log(lotNumber);
-                console.log(n)
+                n--;    //Subtract 1 from n so that the number is checked again.
+                //console.log(lotNumber);
+                //console.log(n)
             }
-            console.log(n);
+            //console.log(n);
         }
     }
 
-    return lotNumber;
+    return lotNumber;                   //Returning lottery numbers.
 
 }
 
 
 /*MAIN CODE*/
 
-lotteryNums = lotteryNumGen(115, 110, 6);
-console.log(lotteryNums);
+lotteryType = prompt("Please enter the type of lottery you would like:\n\nIf you would like the Florida Lottery please enter FL-Lottery.\n\nIf you would like the Powerball Lottery please enter Power-Lottery.\n\nIf you would like Powerball numbers please enter Powerball.");
+
+if (lotteryType === "FL-Lottery" || lotteryType === "fl-lottery" || lotteryType === "FL Lottery" || lotteryType === "fl lottery" || lotteryType === "Florida Lottery" || lotteryType === "florida lottery"){
+
+    console.log("You chose the Florida Lottery.");
+
+    lotteryNums = lotteryNumGen(1, 53, 6);
+
+    console.log("Your numbers are " + lotteryNums[0] + " " + lotteryNums[1] + " "+ lotteryNums[2] + " " + lotteryNums[3] + " " + lotteryNums[4] + " " + lotteryNums[5] + ".");
+
+}
+
+//lotteryNums = lotteryNumGen(115, 110, 6);   //Assigning the returned values to a global variable.
+//console.log(lotteryNums);
 
 
 /*TESTS*/
