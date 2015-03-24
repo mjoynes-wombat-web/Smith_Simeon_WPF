@@ -80,6 +80,19 @@ for (var n  = 0; ln > n; n++) {
     console.log(n);
 }
 
+/* OUTPUT FROM THIS CODE
+ script.js:68 [115, 112, 115, 115]
+ script.js:77 [115, 112, 115, 115]
+ script.js:78 -1
+ script.js:80 -1
+ script.js:77 [115, 112, 115, 114]
+ script.js:78 -1
+ script.js:80 -1
+ script.js:80 0
+ script.js:80 1
+ script.js:80 2
+ */
+
 
 /*MAIN CODE*/
 
