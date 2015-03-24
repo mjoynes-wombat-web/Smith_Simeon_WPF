@@ -43,9 +43,9 @@ March 23, 2013
 /*VARIABLES*/
 
 var lotteryNums,        //Setting up lottery number variable.
-    lottery,        //Setting up the lottery type variable.
-    floridaLottery = false,     //Setting up the Florida Lottery variable.
-    powerballLottery = false,   //Setting up the Powerball Lottery variable.
+    lotteryType,        //Setting up the lottery type variable.
+    floridaLottery,     //Setting up the Florida Lottery variable.
+    powerballLottery,   //Setting up the Powerball Lottery variable.
     powerball;          //Setting up the Powerball variable.
 
 
@@ -77,58 +77,68 @@ function lotteryNumGen (low, up, qt) {  //Defining function name, and parameters
 
 }
 
-function lotteryTypePrompt (){
 
-    var lotteryType = prompt("Please enter the type of lottery you would like:\n\nIf you would like the Florida Lottery please enter Florida.\n\nIf you would like the Powerball Lottery please enter Powerball.");
+function lotteryTypePrompt (n){
 
-    return lotteryType;
-}
+    var florida = false;
+    var powerball = false;
+    var lottery = prompt("Please enter the type of lottery you would like:\n\nIf you would like the Florida Lottery please enter Florida.\n\nIf you would like the Powerball Lottery please enter Powerball.");
 
-function lotteryTypeValidation (){
 
     if (lottery === "Florida Lottery" || lottery === "florida lottery" || lottery === "Florida" || lottery === "florida"){
 
-        floridaLottery = true;
+        florida = true;
 
     }else if (lottery === "Powerball Lottery" || lottery === "powerball lottery" || lottery === "Powerball" || lottery === "powerball"){
 
-        powerballLottery = true;
+        powerball = true;
 
     }
 
-}
+    while (!florida && !powerball){
 
-function promptLimit (){
-
-    var n = 1;
-
-    while (!floridaLottery && !powerballLottery){
-
-        if (n === 5) { //Put a limit on how many times the prompt can be left blank.
+        if (n === 1) { //Put a limit on how many times the prompt can be left blank.
             console.log("You did not enter a valid lottery type.\nWe could not generate your numbers because of this.\nPlease refresh the page if you would like to try again.");
             break;
         }
 
         alert("You did not enter a valid lottery type. Please enter exactly what appears in the prompt.")
 
-        lottery = lotteryTypePrompt();
+        var lottery = prompt("Please enter the type of lottery you would like:\n\nIf you would like the Florida Lottery please enter Florida.\n\nIf you would like the Powerball Lottery please enter Powerball.");
 
-        lotteryTypeValidation();
+        if (lottery === "Florida Lottery" || lottery === "florida lottery" || lottery === "Florida" || lottery === "florida"){
 
-        n++;
+            florida = true;
+
+        }else if (lottery === "Powerball Lottery" || lottery === "powerball lottery" || lottery === "Powerball" || lottery === "powerball"){
+
+            powerball = true;
+
+        }
+
+        n--;
 
     }
 
+    return lottery;
 }
 
 
 /*MAIN CODE*/
 
-lottery = lotteryTypePrompt();
+lotteryType = lotteryTypePrompt(5);
 
-lotteryTypeValidation();
 
-promptLimit();
+if (lotteryType === "Florida Lottery" || lotteryType === "florida lottery" || lotteryType === "Florida" || lotteryType === "florida"){
+
+    floridaLottery = true;
+
+}else if (lotteryType === "Powerball Lottery" || lotteryType === "powerball lottery" || lotteryType === "Powerball" || lotteryType === "powerball"){
+
+    powerballLottery = true;
+
+}
+
 
 if (floridaLottery){
 
@@ -149,9 +159,6 @@ if (floridaLottery){
     console.log("Your numbers are " + lotteryNums[0] + " " + lotteryNums[1] + " "+ lotteryNums[2] + " " + lotteryNums[3] + " " + lotteryNums[4] + " and your Powerball number is " + lotteryNums[5] + ".")
 
 }
-
-//lotteryNums = lotteryNumGen(115, 110, 6);   //Assigning the returned values to a global variable.
-//console.log(lotteryNums);
 
 
 /*TESTS*/
