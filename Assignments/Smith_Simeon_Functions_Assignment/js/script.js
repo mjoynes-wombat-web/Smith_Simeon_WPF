@@ -43,9 +43,9 @@ March 23, 2013
 /*VARIABLES*/
 
 var lotteryNums,        //Setting up lottery number variable.
-    lotteryType,        //Setting up the lottery type variable.
-    floridaLottery,     //Setting up the Florida Lottery variable.
-    powerballLottery,   //Setting up the Powerball Lottery variable.
+    lottery,        //Setting up the lottery type variable.
+    floridaLottery = false,     //Setting up the Florida Lottery variable.
+    powerballLottery = false,   //Setting up the Powerball Lottery variable.
     powerball;          //Setting up the Powerball variable.
 
 
@@ -77,18 +77,76 @@ function lotteryNumGen (low, up, qt) {  //Defining function name, and parameters
 
 }
 
+function lotteryTypePrompt (){
+
+    var lotteryType = prompt("Please enter the type of lottery you would like:\n\nIf you would like the Florida Lottery please enter Florida.\n\nIf you would like the Powerball Lottery please enter Powerball.");
+
+    return lotteryType;
+}
+
+function lotteryTypeValidation (){
+
+    if (lottery === "Florida Lottery" || lottery === "florida lottery" || lottery === "Florida" || lottery === "florida"){
+
+        floridaLottery = true;
+
+    }else if (lottery === "Powerball Lottery" || lottery === "powerball lottery" || lottery === "Powerball" || lottery === "powerball"){
+
+        powerballLottery = true;
+
+    }
+
+}
+
+function promptLimit (){
+
+    var n = 1;
+
+    while (!floridaLottery && !powerballLottery){
+
+        if (n === 5) { //Put a limit on how many times the prompt can be left blank.
+            console.log("You did not enter a valid lottery type.\nWe could not generate your numbers because of this.\nPlease refresh the page if you would like to try again.");
+            break;
+        }
+
+        alert("You did not enter a valid lottery type. Please enter exactly what appears in the prompt.")
+
+        lottery = lotteryTypePrompt();
+
+        lotteryTypeValidation();
+
+        n++;
+
+    }
+
+}
+
 
 /*MAIN CODE*/
 
-lotteryType = prompt("Please enter the type of lottery you would like:\n\nIf you would like the Florida Lottery please enter FL-Lottery.\n\nIf you would like the Powerball Lottery please enter Power-Lottery.\n\nIf you would like Powerball numbers please enter Powerball.");
+lottery = lotteryTypePrompt();
 
-if (lotteryType === "FL-Lottery" || lotteryType === "fl-lottery" || lotteryType === "FL Lottery" || lotteryType === "fl lottery" || lotteryType === "Florida Lottery" || lotteryType === "florida lottery"){
+lotteryTypeValidation();
+
+promptLimit();
+
+if (floridaLottery){
 
     console.log("You chose the Florida Lottery.");
 
     lotteryNums = lotteryNumGen(1, 53, 6);
 
     console.log("Your numbers are " + lotteryNums[0] + " " + lotteryNums[1] + " "+ lotteryNums[2] + " " + lotteryNums[3] + " " + lotteryNums[4] + " " + lotteryNums[5] + ".");
+
+}else if (powerballLottery){
+
+    console.log("You chose the Powerball Lottery.");
+
+    lotteryNums = lotteryNumGen(1, 59, 5);
+
+    lotteryNums[5] = lotteryNumGen(1, 35, 1);
+
+    console.log("Your numbers are " + lotteryNums[0] + " " + lotteryNums[1] + " "+ lotteryNums[2] + " " + lotteryNums[3] + " " + lotteryNums[4] + " and your Powerball number is " + lotteryNums[5] + ".")
 
 }
 
