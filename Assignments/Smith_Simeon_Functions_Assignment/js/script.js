@@ -63,8 +63,25 @@ function lotteryNumGen (up, low, qt) {
 
 }
 
+var ln = 3;
+var lotNumber = [115, 112, 115, 115];
+console.log(lotNumber);
+var up = 115;
+var low = 1;
+
+for (var n  = 0; ln > n; n++) {
+    if (lotNumber[n] === lotNumber[ln]){
+        lotNumber[ln] = Math.round(Math.random() * (up - low) + low);
+
+        n--;
+        console.log(lotNumber);
+        console.log(n)
+    }
+    console.log(n);
+}
+
 
 /*MAIN CODE*/
 
-lotteryNums = lotteryNumGen(53, 1, 6);
-console.log(lotteryNums);
+//lotteryNums = lotteryNumGen(53, 1, 6);
+//console.log(lotteryNums);
